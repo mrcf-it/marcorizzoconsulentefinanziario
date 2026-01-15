@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>হোম লোন পরামর্শ – বিনামূল্যের কল</title>
+
+  <style>
+    :root{
+      --primary:#050504;
+      --accent:#EAB617;
+      --secondary:#6C677D;
+      --bg:#f5f7fa;
+      --card:#ffffff;
+      --soft:#FBFBF3;
+      --text:#1f2933;
+      --muted:#5b6773;
+      --radius:18px;
+      --shadow: 0 10px 30px rgba(0,0,0,.10);
+    }
+
+    *{ box-sizing:border-box; font-family: Arial, Helvetica, sans-serif; }
+    body{ margin:0; background:var(--bg); color:var(--text); }
+    a{ color:inherit; }
+    .wrap{ max-width:1100px; margin:auto; padding: 0 18px; }
+
+    .topbar{
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(255,255,255,.85);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(0,0,0,.06);
+    }
+
+    .topbar .row{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding: 14px 0;
+      gap: 16px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap: 14px;
+    }
+
+    .brand-logo{
+      height: 44px;
+      width:auto;
+    }
+
+    .brand-text{
+      display:flex;
+      flex-direction:column;
+      line-height: 1.1;
+    }
+
+    .brand-name{
+      font-size: 1.15rem;
+      font-weight: 800;
+      letter-spacing: 0.6px;
+      color: #C84A4A;
+      text-transform: uppercase;
+    }
+
+    .brand-role{
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: #C84A4A;
+      opacity: 0.85;
+    }
+
+    .top-cta{
+      display:flex;
+      gap: 10px;
+      flex-wrap:wrap;
+    }
+
+    .pill{
+      font-size:.92rem;
+      color: var(--muted);
+      background: #fff;
+      border: 1px solid rgba(0,0,0,.08);
+      padding: 8px 10px;
+      border-radius: 999px;
+    }
+
+    .btn{
+      display:inline-block;
+      text-decoration:none;
+      font-weight:700;
+      border-radius: 12px;
+      padding: 12px 16px;
+      transition: transform .12s ease, opacity .12s ease;
+      text-align:center;
+    }
+
+    .btn:hover{ transform: translateY(-1px); opacity:.95; }
+
+    .btn-primary{
+      background: var(--accent);
+      color: var(--primary);
+    }
+
+    .btn-outline{
+      border: 2px solid rgba(255,255,255,.35);
+      color: #fff;
+    }
+
+    .hero{
+      background: linear-gradient(135deg, var(--primary), #1a1a18);
+      color:#fff;
+      padding: 46px 0 32px;
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 26px;
+      align-items:center;
+    }
+
+    .hero h1{
+      font-size: 2.35rem;
+      line-height:1.12;
+      margin: 0 0 12px;
+    }
+
+    .hero p{
+      color: rgba(255,255,255,.86);
+      font-size: 1.05rem;
+      line-height:1.5;
+      max-width: 720px;
+    }
+
+    .hero-actions{
+      display:flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+
+    .trust{
+      margin-top: 18px;
+      display:flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      font-size: .92rem;
+    }
+
+    .trust .badge{
+      border: 1px solid rgba(255,255,255,.20);
+      padding: 8px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.06);
+    }
+
+    .portrait-card{
+      background: rgba(255,255,255,.06);
+      border-radius: var(--radius);
+      padding: 16px;
+    }
+
+    .portrait{
+      width:100%;
+      border-radius: 14px;
+    }
+
+    .name{ font-weight:800; }
+    .role{ font-size:.95rem; opacity:.85; }
+
+    .section{
+      margin: 26px 0;
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .section .inner{
+      padding: 32px 22px;
+    }
+
+    .section h2{
+      text-align:center;
+      margin-bottom: 18px;
+      font-size: 1.75rem;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+    }
+
+    .box{
+      background: linear-gradient(180deg, #fff, var(--soft));
+      border-radius: 14px;
+      padding: 16px;
+    }
+
+    .box h3{ margin: 0 0 8px; }
+    .box p{ margin: 0; color: var(--muted); }
+
+    .quick-contact{
+      display:flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      justify-content: center;
+      background: #e9f7f1;
+      padding: 16px;
+      border-radius: 16px;
+    }
+
+    .qc-btn{
+      display:inline-flex;
+      gap: 10px;
+      padding: 12px 18px;
+      border-radius: 999px;
+      font-weight: 800;
+      background: #fff;
+      text-decoration:none;
+    }
+
+    footer{
+      text-align:center;
+      padding: 26px;
+      font-size: .9rem;
+      color:#6b7785;
+    }
+
+    @media (max-width: 860px){
+      .hero-grid{ grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <div class="row">
+      <div class="brand">
+        <img src="logo.png" class="brand-logo" alt="Logo">
+        <div class="brand-text">
+          <div class="brand-name">MARCO RIZZO</div>
+          <div class="brand-role">আর্থিক পরামর্শদাতা</div>
+        </div>
+      </div>
+
+      <div class="top-cta">
+        <span class="pill">✅ বিনামূল্যের কল</span>
+        <a class="btn btn-primary" href="#contatto">এখনই বুক করুন</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <h1>সহজভাবে সঠিক হোম লোন বেছে নিন</h1>
+        <p>
+          একটি <strong>বিনামূল্যের পরামর্শ কল</strong> বুক করুন।  
+          আমরা একসাথে আপনার পরিস্থিতি বিশ্লেষণ করব এবং সহজ ভাষায়
+          সেরা বিকল্পগুলো (প্রথম বাড়ি, সারোগা, রিফাইন্যান্সিং) ব্যাখ্যা করব।
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#contatto">বিনামূল্যের কল বুক করুন</a>
+          <a class="btn btn-outline" href="#come-funziona">কিভাবে কাজ করে</a>
+        </div>
+
+        <div class="trust">
+          <span class="badge">🔒 তথ্য সম্পূর্ণ গোপনীয়</span>
+          <span class="badge">⏱️ কোনো বাধ্যবাধকতা নেই</span>
+          <span class="badge">📍 অনলাইন পরামর্শ</span>
+        </div>
+      </div>
+
+      <div class="portrait-card">
+        <img src="marco.png" class="portrait" alt="Marco Rizzo">
+        <div class="name">Marco Rizzo</div>
+        <div class="role">আর্থিক পরামর্শদাতা</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+
+<section class="section">
+  <div class="inner">
+    <h2>কেন হোম লোন পরামর্শ নেওয়া গুরুত্বপূর্ণ</h2>
+    <div class="grid">
+      <div class="box">
+        <h3>🔎 পরিষ্কার ধারণা</h3>
+        <p>ফিক্সড ও ভেরিয়েবল সুদের পার্থক্য বুঝতে সাহায্য করে।</p>
+      </div>
+      <div class="box">
+        <h3>💰 সাশ্রয়</h3>
+        <p>সঠিক সিদ্ধান্ত আপনাকে দীর্ঘমেয়াদে অর্থ বাঁচাতে সাহায্য করতে পারে।</p>
+      </div>
+      <div class="box">
+        <h3>⚡ স্পষ্ট দিকনির্দেশনা</h3>
+        <p>পরবর্তী ধাপে কী করা উচিত তা পরিষ্কারভাবে জানা যায়।</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="come-funziona">
+  <div class="inner">
+    <h2>কিভাবে কাজ করে</h2>
+    <div class="grid">
+      <div class="box">
+        <h3>1️⃣ দ্রুত যোগাযোগ</h3>
+        <p>WhatsApp, ইমেইল বা ফোনের মাধ্যমে যোগাযোগ করুন।</p>
+      </div>
+      <div class="box">
+        <h3>2️⃣ বিনামূল্যের কল</h3>
+        <p>আপনার প্রয়োজন ও সম্ভাবনা বিশ্লেষণ করা হয়।</p>
+      </div>
+      <div class="box">
+        <h3>3️⃣ পরবর্তী ধাপ</h3>
+        <p>ডকুমেন্ট ও প্রক্রিয়া সম্পর্কে স্পষ্ট নির্দেশনা দেওয়া হয়।</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="contatto">
+  <div class="inner">
+    <h2>আপনার বিনামূল্যের কল বুক করুন</h2>
+
+    <div class="quick-contact">
+      <a class="qc-btn" href="https://wa.me/393924495998" target="_blank">💬 WhatsApp</a>
+      <a class="qc-btn" href="mailto:cfmarcorizzo@gmail.com">✉️ ইমেইল</a>
+      <a class="qc-btn" href="tel:+393924495998">📞 কল করুন</a>
+    </div>
+  </div>
+</section>
+
+</div>
+
+<footer>
+  © 2026 – Marco Rizzo • হোম লোন পরামর্শ
+</footer>
+
+</body>
+</html>
